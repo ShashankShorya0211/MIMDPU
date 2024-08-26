@@ -1,0 +1,20 @@
+Older Version (Before 26th August 2024):
+
+The syntax analysis was limited to parsing simple arithmetic expressions, variable declarations, and assignments.
+Semantic analysis ensured type safety in binary operations and assignments but didn’t handle more complex constructs like control flow.
+
+
+New Version (After 26th August 2024):
+
+Syntax Analysis: 
+Now supports:
+Parsing control flow (if statements), comparisons in conditions, and return statements.
+Handling declarations of different data types (int, float, etc.) and their initialization.
+
+Semantic Analysis: 
+Expanded to:
+Check type consistency in comparisons and logical operations.
+Ensure proper variable declarations before use and handle type matching in assignments and expressions.
+These updates make the compiler capable of handling more complex programs involving conditional logic and detailed type checking, increasing robustness and correctness.
+
+Overall, with these updates, our compiler is now equipped to handle more advanced language features, including control flow (if statements), logical and comparison operators, type checking for complex expressions, and ensuring proper variable management in the newer version.
