@@ -1,0 +1,41 @@
+changes made on 27/08/2024:
+
+Label Counting in Intermediate Representation (IR):
+
+The newer version introduces the use of labels (else_label and end_label) for handling if-else control flow during IR generation. 
+A label_count variable is introduced to ensure unique labels for branching statements.
+
+Additional Instruction Handling:
+
+New IR instruction handling has been added for comparisons and jumps. The newer version supports comparison operators and branching 
+logic (e.g., CMP, JMP_IF_ELSE, LABEL). The older version only included IR for arithmetic operations, assignments, and declarations.
+
+Enhanced Code Generation:
+
+The code generation phase in the newer version has been enhanced to handle branching. It now generates conditional jump instructions 
+like JGE, JLE, JNE, JE, JG, JL, based on comparison results. This allows more complex control flow, such as if-else structures.
+
+Return Statement Handling:
+
+The newer version includes proper handling of RETURN statements during IR generation and code generation phases. 
+The code generator adds RET instructions to complete the execution of a function, which was not explicitly handled in the older version.
+
+Comparison Instructions:
+
+The newer version handles the CMP instruction, which performs comparisons between operands, setting up conditional jumps for branching,
+while the older version does not handle comparisons explicitly.
+
+Assembly Generation Enhancements:
+
+The newer version includes handling for the CMP instruction and a range of conditional jumps (JGE, JLE, JE, etc.). 
+This allows the generated assembly code to implement decision-making logic that was previously missing.
+
+Refinements in Code Generation Logic:
+
+A more structured approach to variable-register allocation and spilling is implemented in the newer version, providing better 
+management of live variables during the code generation phase.
+
+
+overall, the newer version introduces support for control flow structures (if-else), comparisons, and return statements. 
+It adds the concept of labels and conditional jumps to the IR and assembly generation phases. These changes result in the ability to 
+compile and generate assembly code for more complex programs involving conditional logic.
