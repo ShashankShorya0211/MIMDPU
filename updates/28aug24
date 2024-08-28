@@ -1,0 +1,86 @@
+changes made on 28/08/2024
+
+1. Stack Management
+
+Implemented stack-based memory allocation for local variables:
+
+Added stack_size and variable_offsets attributes to the BasicCompiler class.
+Calculated stack size for local variables in the code generation phase.
+Implemented memory allocation for variables that can't be kept in registers.
+
+
+Added proper stack frame setup in assembly code generation:
+
+Introduced prologue code: PUSH ebp, MOV ebp, esp, SUB esp, stack_size
+Added epilogue code: MOV esp, ebp, POP ebp, RET
+
+
+
+2. Register Allocation
+
+Improved register allocation strategy:
+
+Implemented a spilling mechanism for when all registers are in use.
+Added allocate_register function to manage register allocation and spilling.
+
+
+Introduced live variable tracking to optimize register usage:
+
+Added live_variables set to keep track of variables currently in use.
+Implemented logic to free registers when variables are no longer needed.
+
+
+
+3. Code Generation
+
+Enhanced code generation for more efficient assembly output:
+
+Improved handling of binary operations to minimize unnecessary register moves.
+Optimized code generation for common patterns (e.g., using ADD instead of MOV followed by ADD when possible).
+
+
+Added support for proper function prologue and epilogue:
+
+Implemented setup and teardown of stack frame for function calls.
+Ensured proper handling of the eax register for return values.
+
+
+
+4. Error Handling
+
+Improved error detection and reporting in the syntax analysis phase:
+
+Added more specific error messages for common syntax errors.
+Implemented better error recovery to continue parsing after encountering errors.
+
+
+
+5. Comparison Operations
+
+Extended support for various comparison operations:
+
+Added handling for ==, !=, <, >, <=, >= in IR generation.
+Implemented corresponding assembly code generation for these operations.
+Updated the JMP_IF_ELSE instruction to use the appropriate conditional jump based on the comparison operator.
+
+
+
+6. Control Flow
+
+Improved handling of if-statements:
+
+Enhanced IR generation for if-statements with proper labeling.
+Implemented assembly code generation for if-statements with correct branching.
+
+
+Added groundwork for supporting else clauses:
+
+Modified the AST structure to accommodate else blocks.
+Prepared the IR generation to handle else clauses (though full implementation is pending).
+
+
+
+Additional Notes
+
+The assemble method was updated to support new assembly instructions introduced by these changes.
+The overall structure of the BasicCompiler class was refactored to accommodate these new features more efficiently.
