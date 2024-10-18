@@ -92,8 +92,6 @@ This document outlines the significant updates and improvements made to the MIMD
 ### 8.1 Example Programs
 - Included example C programs to test and demonstrate the compiler's capabilities.
 
-### 8.2 Output Verification
-- Added functionality to print and verify the output at each compilation stage.
 
 ## Conclusion
 
