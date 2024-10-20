@@ -1,0 +1,45 @@
+graph TD
+    A[Source Code] --> B[Lexer]
+    B --> C[Tokens]
+    C --> D[Parser]
+    D --> E[Abstract Syntax Tree AST]
+    E --> F[Semantic Analyzer]
+    F --> G[Validated AST]
+    G --> H[IR Generator]
+    H --> I[Intermediate Representation IR]
+    I --> J[IR Optimizer]
+    J --> K[Optimized IR]
+    K --> L[MIMD-PU Code Generator]
+    L --> M[MIMD-PU Code]
+
+    B --> N[Lexical Analysis Output]
+    N -->|"Tokens: KEYWORD, IDENTIFIER, etc."| C
+
+    D --> O[Syntax Analysis Output]
+    O -->|"AST: Program, FunctionDefinition, etc."| E
+
+    F --> P[Semantic Analysis Output]
+    P -->|"Completed successfully"| G
+
+    H --> Q[IR Generation Output]
+    Q -->|"IR: FUNCTION_BEGIN, ALLOC, etc."| I
+
+    J --> R[IR Optimization Output]
+    R -->|"Optimized IR: Removed redundant operations"| K
+
+    L --> S[MIMD-PU Code Generation Output]
+    S -->|"MIMD-PU Code: CONFIGURE_TREE, SET_WEIGHTS, etc."| M
+
+    style B fill:#f9f,stroke:#333,stroke-width:2px
+    style D fill:#f9f,stroke:#333,stroke-width:2px
+    style F fill:#f9f,stroke:#333,stroke-width:2px
+    style H fill:#f9f,stroke:#333,stroke-width:2px
+    style J fill:#f9f,stroke:#333,stroke-width:2px
+    style L fill:#f9f,stroke:#333,stroke-width:2px
+
+    style N fill:#ff9,stroke:#333,stroke-width:2px
+    style O fill:#ff9,stroke:#333,stroke-width:2px
+    style P fill:#ff9,stroke:#333,stroke-width:2px
+    style Q fill:#ff9,stroke:#333,stroke-width:2px
+    style R fill:#ff9,stroke:#333,stroke-width:2px
+    style S fill:#ff9,stroke:#333,stroke-width:2px
