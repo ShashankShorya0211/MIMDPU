@@ -1,0 +1,29 @@
+graph TD
+    A[Input Layer] --> B[Processing Tree]
+    B --> C[Output Layer]
+
+    subgraph "Processing Tree"
+        D[Level 1 PUs]
+        E[Level 2 PUs]
+        F[Level 3 PUs]
+        G[...]
+        H[Level N PUs]
+
+        D --> E
+        E --> F
+        F --> G
+        G --> H
+    end
+
+    I[Configuration Unit] --> B
+    J[Weight Storage] --> B
+    K[Activation Unit] --> B
+
+    L[Control Unit] --> A
+    L --> B
+    L --> C
+    L --> I
+    L --> J
+    L --> K
+
+    M[Memory] <--> L
